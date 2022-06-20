@@ -1,0 +1,95 @@
+:root{
+    --color-surface: BLACK;
+    --color-background: palegoldenrod;
+}
+
+/* Regrinhas da caixa */
+
+*,*::after,*::before{
+    box-sizing: border-box;
+}
+/*Removendo a margem*/
+body, h1, h2, h3, h4, p, figure, blockquote, dl, dd{
+    margin: 0 ;
+    font-size: 100%;
+}
+*:focus{
+    outline: none;
+}
+*:focus-visible{
+    outline: 3px solid currentColor;
+    outline-offset: 3px;
+}
+html{
+    height: 100vh;
+    line-height: 1.3;
+    font-size: 87.5%;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+    display: grid;
+    place-items: center;
+    color: var(--color-surface);
+    background-color: var(--color-background);
+}
+
+body{
+    padding: 2rem;
+    max-width: 74rem;
+}
+
+::selection{
+    color: var(--color-surface);
+    background-color: var(--color-background);    
+}
+
+h1{
+    margin: 2rem;
+}
+
+p{
+    font-size: 4rem;
+    font-weight: normal;
+    filter: url(#filter);
+    border: 3px solid currentColor;
+    padding: 3rem;
+    font-family: "Bebas", sans-serif;
+}
+
+em {
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: underline;
+    text-decoration-thickness: 0.1em;
+    text-underline-offset: 0.05em;
+}
+
+strong {
+    font-weight: normal;
+    background-color: var(--color-surface);
+    color: var(--color-background);
+    padding: 0 0.25em;  
+}
+
+label, h1, output{
+    font-size: inherit;
+}
+
+/*Para RANGE INPUT*/
+
+input[type="range"]{
+    --range__thumb-size: 1.5em;
+    --range__border-width: 3px;
+    -webkit-appearance: none;
+    margin-top: 1em 0 ;
+    width: 100%;
+    display: block;
+    color: inherit;
+    background-color: transparent ;
+}
+
+input[typer="range"]::-webkit-slider-runnable-track{
+    width: 100%;
+    height: var(--range__border-width);
+    cursor: pointer;
+}

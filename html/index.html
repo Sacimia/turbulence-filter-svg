@@ -1,0 +1,52 @@
+<!--Isso será somente um teste de html e css para me fortificar-->
+<!--Dependento irei transformar isso em outro projeto-->
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8" http-equiv="X-UA-Compatible" content="IE=edge" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>"Panfleto"</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Teste filtro turbulência</h1>
+    <p id="sentence" contenteditable="true" spellcheck="false">
+        A <strong>TurbTurbulência</strong> filtro SVG gera e renderiza<em></em>. Pode ser usado por Css para distorcer <strong>elementos e texto</strong>. Tenta selecionar ou editar <em>este texto</em>. Ou mexa com sliders através para <strong>mudar o efeito</strong> 
+    </p>
+    <div class="sliders">
+        <div class="slider">
+            <label type="range" for="turbulenciaNumOctavesRange">Turbulência número de otavos</label>
+            <output for="turbulenceNumOctavesRange" id="turbulenceNumOctavesRangeOutput"></output>
+            <input class="slider__range" type="range" name="turbulenceNumOctavesRange" id="turbulenceNumOctavesRange" data-filter-id="turbulence" data-filter-attr="numOctaves" min="1" max="9" value="5" />
+        </div> 
+        <div class="slider">
+            <label for="turbulenceBaseFrequencyRange">Turbulence Base Frequency</label>
+            <output for="turbulenceBaseFrequencyRange" id="turbulenceBaseFrequencyRangeOutput"></output>
+            <input class="slider__range" type="range" name="turbulenceBaseFrequencyRange" id="turbulenceBaseFrequencyRange" data-filter-id="turbulence" data-filter-attr="baseFrequency" min="0.0001" max="0.002" step="0.0001" value="0.0002" />
+          </div>
+          <div class="slider">
+            <label for="turbulenceBaseSeedRange">Turbulence Seed</label>
+            <output for="turbulenceBaseSeedRange" id="turbulenceBaseSeedRangeOutput"></output>
+            <input class="slider__range" type="range" name="turbulenceBaseSeedRange" id="turbulenceBaseSeedRange" data-filter-id="turbulence" data-filter-attr="seed" min="0" max="1000" step="1" value="500" />
+          </div>
+          <div class="slider">
+            <label for="displacerScaleRange">Displacer Scale</label>
+            <output for="displacerScaleRange" id="displacerScaleRangeOutput"></output>
+            <input class="slider__range" type="range" name="displacerScaleRange" id="displacerScaleRange" data-filter-id="displacer" data-filter-attr="scale" min="1" max="100" value="50" />
+          </div>
+        </div>
+        
+        <svg class="filter">
+          <defs>
+            <filter id="filter">
+              <feTurbulence id="turbulence" type="fractalNoise" baseFrequency="0.0001 " numOctaves="5" result="NOISE">
+              </feTurbulence>
+              <feGaussianBlur in="SourceGraphic" result="BLURRED" stdDeviation="0"></feGaussianBlur>
+              <feDisplacementMap id="displacer" in2="NOISE" in="BLURRED" scale="15" xChannelSelector="R" yChannelSelector="R" result="DISPLACED"></feDisplacementMap>
+            </filter>
+          </defs>
+        </svg>   
+    </div>
+</body>
+<script src="/js/script.js"></script>
+</html>
